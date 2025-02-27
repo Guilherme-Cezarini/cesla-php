@@ -3,6 +3,7 @@
 
 Este repositório contém um projeto exemplo que utiliza Composer para gerenciamento de dependências, Docker para containerização e Doctrine Migrations para gerenciamento de migrações de banco de dados. Abaixo estão os passos necessários para configurar e executar o projeto.
 
+
 ## Pré-requisitos
 
 Antes de começar, certifique-se de que você tem os seguintes softwares instalados em sua máquina:
@@ -12,6 +13,24 @@ Antes de começar, certifique-se de que você tem os seguintes softwares instala
 - [Composer](https://getcomposer.org/download/)
 - [Apache](https://httpd.apache.org/docs/2.4/install.html)
 - PHP 8.4.*
+
+## API de Gerenciamento de Produtos
+
+A API de Gerenciamento de Produtos oferece uma solução completa para a criação, atualização, consulta e exclusão de produtos. Com ela, você pode gerenciar de forma eficiente o catálogo de produtos da sua aplicação, garantindo uma integração simples e segura.
+
+Para mais detalhes sobre os endpoints disponíveis, parâmetros necessários, exemplos de requisições e respostas, consulte a documentação oficial da API:
+
+- [Link da documentacao API](https://documenter.getpostman.com/view/8974964/2sAYdhHpSm)
+
+
+Principais Funcionalidades
+Criação de Produtos: Adicione novos produtos ao catálogo com informações detalhadas.
+
+Atualização de Produtos: Atualize informações de produtos existentes, como nome, descrição, preço, etc.
+
+Consulta de Produtos: Obtenha detalhes de produtos específicos ou liste todos os produtos disponíveis.
+
+Exclusão de Produtos: Remova produtos do catálogo quando necessário.
 
 ## Configuração do Projeto
 
