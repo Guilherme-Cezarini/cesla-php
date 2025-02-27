@@ -1,6 +1,4 @@
-Aqui está um exemplo de um `README.md` detalhado com base no passo a passo fornecido:
 
-```markdown
 # Projeto Exemplo
 
 Este repositório contém um projeto exemplo que utiliza Composer para gerenciamento de dependências, Docker para containerização e Doctrine Migrations para gerenciamento de migrações de banco de dados. Abaixo estão os passos necessários para configurar e executar o projeto.
@@ -81,8 +79,7 @@ Aqui estão alguns exemplos de como você pode usar o `cli.php`:
 
 Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato:
 
-- **Nome**: [Seu Nome]
-- **Email**: [seu-email@example.com]
-- **GitHub**: [seu-usuario-github]
+- **Nome**: [Guilherme Cezarini]
+- **Email**: [cezarini.guilherme2@gmail.com]
+- **GitHub**: [Guilherme-Cezarini]
 
-```
