@@ -15,10 +15,13 @@ Antes de começar, certifique-se de que você tem os seguintes softwares instala
 ## Configuração do Projeto
 
 Siga os passos abaixo para configurar e executar o projeto:
+### Passo 1: Copiar o .env.example
 
-### Passo 1: Instalar Dependências com Composer
+Primeiro, copie o .env.example para um .env e coloque as variáveis necessárias, sem ela o projeto nao sobe!
 
-Primeiro, instale as dependências do projeto usando o Composer. Execute o seguinte comando na raiz do projeto:
+### Passo 2: Instalar Dependências com Composer
+
+Segundo, instale as dependências do projeto usando o Composer. Execute o seguinte comando na raiz do projeto:
 
 ```bash
 composer install
@@ -26,7 +29,7 @@ composer install
 
 Este comando irá baixar todas as dependências necessárias listadas no arquivo `composer.json`.
 
-### Passo 2: Iniciar os Containers com Docker Compose
+### Passo 3: Iniciar os Containers com Docker Compose
 
 Em seguida, inicie os containers Docker usando o Docker Compose. Execute o seguinte comando:
 
@@ -36,7 +39,7 @@ docker compose up -d
 
 Este comando irá construir e iniciar os containers definidos no arquivo `docker-compose.yml`. A opção `-d` executa os containers em segundo plano.
 
-### Passo 3: Executar Migrações do Banco de Dados
+### Passo 4: Executar Migrações do Banco de Dados
 
 Após os containers estarem em execução, você precisa aplicar as migrações do banco de dados. Execute o seguinte comando:
 
@@ -46,7 +49,7 @@ Após os containers estarem em execução, você precisa aplicar as migrações 
 
 Este comando irá aplicar todas as migrações pendentes ao banco de dados, criando ou atualizando as tabelas conforme necessário.
 
-### Passo 4: Rodando a aplicação
+### Passo 5: Rodando a aplicação
 
 Para subir o projeto é necessario ir na pasta root do projeto e rodar: 
 
@@ -54,7 +57,7 @@ Para subir o projeto é necessario ir na pasta root do projeto e rodar:
 php -S localhost:8080 -t public
 ```
 
-### Passo 5: Dar Permissão de Execução ao Arquivo `cli.php`
+### Passo 6: Dar Permissão de Execução ao Arquivo `cli.php`
 
 Por fim, dê permissão de execução ao arquivo `cli.php` para que você possa executar comandos através dele. Execute o seguinte comando:
 
