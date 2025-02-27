@@ -11,6 +11,7 @@ Antes de começar, certifique-se de que você tem os seguintes softwares instala
 - [Docker Compose](https://docs.docker.com/compose/install/)
 - [Composer](https://getcomposer.org/download/)
 - [Apache](https://httpd.apache.org/docs/2.4/install.html)
+- PHP 8.4.*
 
 ## Configuração do Projeto
 
