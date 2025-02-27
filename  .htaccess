@@ -1,0 +1,9 @@
+# public/.htaccess
+Options -Multiviews
+RewriteEngine On
+RewriteBase /
+
+# Redireciona todas as requisições para o index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
