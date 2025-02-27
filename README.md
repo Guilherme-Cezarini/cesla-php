@@ -1,5 +1,5 @@
 
-# Projeto Exemplo
+# Cesla PHP
 
 Este repositório contém um projeto exemplo que utiliza Composer para gerenciamento de dependências, Docker para containerização e Doctrine Migrations para gerenciamento de migrações de banco de dados. Abaixo estão os passos necessários para configurar e executar o projeto.
 
@@ -45,7 +45,15 @@ Após os containers estarem em execução, você precisa aplicar as migrações 
 
 Este comando irá aplicar todas as migrações pendentes ao banco de dados, criando ou atualizando as tabelas conforme necessário.
 
-### Passo 4: Dar Permissão de Execução ao Arquivo `cli.php`
+### Passo 4: Rodando a aplicação
+
+Para subir o projeto é necessario ir na pasta root do projeto e rodar: 
+
+```bash
+php -S localhost:8080 -t public
+```
+
+### Passo 5: Dar Permissão de Execução ao Arquivo `cli.php`
 
 Por fim, dê permissão de execução ao arquivo `cli.php` para que você possa executar comandos através dele. Execute o seguinte comando:
 
