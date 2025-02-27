@@ -34,9 +34,9 @@
         <tbody>
             <?php foreach ($products as $product): ?>
             <tr>
-                <td><?= $product['id'] ?></td>
-                <td><?= $product['name'] ?></td>
-                <td><?= $product['price'] ?></td>
+                <td><?= htmlspecialchars($product['id']); ?></td>
+                <td><?= htmlspecialchars($product['name']); ?></td>
+                <td><?= htmlspecialchars($product['price']); ?></td>
                 <td>
                     <a href="/produtos/exibir?id=<?= $product['id'] ?>">Editar</a>
                     <a href="/produtos/deletar?id=<?= $product['id'] ?>">Excluir</a>

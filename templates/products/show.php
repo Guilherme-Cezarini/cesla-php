@@ -20,13 +20,13 @@
         <h2>Edição de produtos </h2>
         <form action="/produtos/editar" method="POST">
             <label for="name">Nome: </label>
-            <input type="text" name="name" required value= "<?php if (isset($product['name'])){ echo $product['name'];  }?>">
+            <input type="text" name="name" required value= "<?php if (isset($product['name'])){ echo htmlspecialchars($product['name']);  }?>">
             
             <label for="description">Descrição: </label>
-            <input type="text" name="description" value= "<?php if (isset($product['description'])){ echo $product['description'];  }?>">
+            <input type="text" name="description" value= "<?php if (isset($product['description'])){ echo htmlspecialchars($product['description']);  }?>">
 
             <label for="price">Preço: </label>
-            <input type="number" name="price" required value= "<?php if (isset($product['price'])){ echo $product['price'];  }?>"> 
+            <input type="number" name="price" required value= "<?php if (isset($product['price'])){ echo htmlspecialchars($product['price']);  }?>"> 
 
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <input type="hidden" name="id" value="<?= $product['id']; ?>">

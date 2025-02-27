@@ -123,8 +123,8 @@ class Routes {
             if (empty($_SESSION['csrf_token'])) {
                 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             }
-
-          
+        
+            header("Content-Security-Policy: default-src 'self'; script-src 'self'");
             $router();
         } catch (\Throwable $th) {
             echo $th->getMessage();
