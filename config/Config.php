@@ -13,7 +13,7 @@ class Config
     {
         $array = [
             'DB_HOST'       => $_ENV['DB_HOST'],
-            'DB_NAME'       => $_ENV['DB_NAME'],
+            'DB_NAME'       => $_ENV['DB_DATABASE'],
             'DB_USERNAME'   => $_ENV['DB_USERNAME'],
             'DB_PASSWORD'   => $_ENV['DB_PASSWORD'],
             'BEARER_TOKEN'  => isset($_ENV['BEARER_TOKEN']) ? $_ENV['BEARER_TOKEN'] : "",
