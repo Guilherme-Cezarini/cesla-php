@@ -2,22 +2,23 @@
 namespace App\Api;
 
 use App\Service\ProductService;
+use App\Response\ApiJsonResponse;
 
 class ProductApiController
 {
     private $service;
+    private $responseMount;
 
     public function __construct() {  
         $this->service = new ProductService();
+        $this->responseMount = new ApiJsonResponse();
     }
 
     public function products($request)
     {
         $page = isset($request->page) ? $request->page : 1;
         $response = $this->service->getProductsPaginated($page);
-        header('Content-Type: application/json');
-        http_response_code(200);
-        echo json_encode($response);
+        $this->responseMount->mount(200, $response);
         return;
     }
 
@@ -26,15 +27,12 @@ class ProductApiController
         $id = $request->url_params['id'];
         $response = $this->service->show($id);
         if(isset($response['error'])){
-            header('Content-Type: application/json');
-            http_response_code(400);
-            echo json_encode(['error' => $response['error']]);
+            $this->responseMount->mount(400, ['error' => $response['error']]);
             return;
         }
+
         $data['data'] = $response['product'];
-        header('Content-Type: application/json');
-        http_response_code(200);
-        echo json_encode($data);
+        $this->responseMount->mount(200, $data);
         return;
     }
 
@@ -46,22 +44,19 @@ class ProductApiController
         $countItem = $this->service->countProductById($data['id']);
         if ($countItem == 0) {
             $response['error'] = "Produto nao encontrado";
-            header('Content-Type: application/json');
-            http_response_code(400);
-            echo json_encode($response);
+            $this->responseMount->mount(400, $response);
             return;
         }
 
         $result = $this->service->update((object)$data);
         if(isset($result['error'])) {
             $response['error'] = $result['error'];
-            header('Content-Type: application/json');
-            http_response_code(400);
-            echo json_encode($response);
+            $this->responseMount->mount(400, $response);
             return;
         }
-        header('Content-Type: application/json');
-        http_response_code(200);    
+
+        $this->responseMount->mount(200, []);
+    
         return;
        
     }
@@ -70,17 +65,17 @@ class ProductApiController
     {
         $json = file_get_contents('php://input');
         $data = json_decode($json, true);
+
         $result = $this->service->insert((object)$data);
        
         if(isset($result['error'])) {
             $response['error'] = $result['error'];
-            header('Content-Type: application/json');
-            http_response_code(400);
-            echo json_encode($response);
+            $this->responseMount->mount(400, $response);
+    
             return;
         }
-        header('Content-Type: application/json');
-        http_response_code(201);    
+        $this->responseMount->mount(200, []);
+
         return;
        
     }
@@ -93,19 +88,15 @@ class ProductApiController
             
             if($result["rowsEffected"] < 1) {
                 $response['error'] = "Produto nao encontrado";
-                header('Content-Type: application/json');
-                http_response_code(400);
-                echo json_encode($response);
+                $this->responseMount->mount(400, $response);
+
                 return;
             }
-            header('Content-Type: application/json');
-            $response['error'] = $result['error'];
-            http_response_code(400);
-            echo json_encode($response);
+            $this->responseMount->mount(400, $result);
             return;
         }
-        header('Content-Type: application/json');
-        http_response_code(200);    
+        $this->responseMount->mount(200, []);
+
         return;
        
     }

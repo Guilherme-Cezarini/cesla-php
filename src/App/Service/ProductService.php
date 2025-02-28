@@ -21,14 +21,17 @@ class ProductService {
 
     public function insert(object $request) : array 
     {
+        
         $validator = new Validator();
         $validator->addRule('name', new RequiredRule());
         $validator->addRule('price', new PositiveNumberRule());
+        
         $data = [
-            "name" => $request->name,
-            "price" => $request->price, 
-            "description" => $request->description
+            "name"          => property_exists($request, 'name') ? $request->name : "",
+            "price"         => property_exists($request, 'price') ? $request->price : 0, 
+            "description"   => property_exists($request, 'description') ? $request->description : ""
         ];
+
         if (!$validator->validate($data)) {
 
             return [
@@ -39,9 +42,9 @@ class ProductService {
 
         try {
             $product = new Product();
-            $product->setName($request->name);
-            $product->setPrice($request->price);
-            $product->setDescription($request->description);
+            $product->setName($data['name']);
+            $product->setPrice($data['price']);
+            $product->setDescription($data['description']);
             $id = $this->repository->insert($product);
 
         } catch ( Exception $excepetion ) {
@@ -62,10 +65,11 @@ class ProductService {
         $validator = new Validator();
         $validator->addRule('name', new RequiredRule());
         $validator->addRule('price', new PositiveNumberRule());
+
         $data = [
-            "name" => $request->name,
-            "price" => $request->price, 
-            "description" => $request->description
+            "name"          => property_exists($request, 'name') ? $request->name : "",
+            "price"         => property_exists($request, 'price') ? $request->price : 0, 
+            "description"   => property_exists($request, 'description') ? $request->description : ""
         ];
        
 
@@ -79,9 +83,9 @@ class ProductService {
 
         try {
             $product = new Product();
-            $product->setName($request->name);
-            $product->setPrice($request->price);
-            $product->setDescription($request->description);
+            $product->setName($data['name']);
+            $product->setPrice($data['price']);
+            $product->setDescription($data['description']);
             $product->setId($request->id);
             
             $id = $this->repository->update($product);
