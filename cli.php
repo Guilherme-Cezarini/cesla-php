@@ -24,6 +24,11 @@ function show()
 
 function handler(array $argv)
 {
+    if(count($argv) < 2) {
+        show();
+        exit(1);
+    }
+
     array_shift($argv);   
     $cmd = $argv[0];
 
@@ -39,9 +44,6 @@ function handler(array $argv)
     }
 }
 
-if(empty($argv)) {
-    show();
-    exit(1);
-}
+
 
 handler($argv);
