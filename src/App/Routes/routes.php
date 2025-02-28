@@ -50,6 +50,7 @@ class Routes {
     {
         return [
             'get' => [
+                '/'                     => fn () => self::load('HomeController', 'index', ''), 
                 '/produtos'             => fn () => self::load('ProductController', 'index', ''), 
                 "/produtos/criar"       => fn () => self::load('ProductController', 'create', ""),
                 "/produtos/deletar"     => fn () => self::load('ProductController', 'delete', ""),
