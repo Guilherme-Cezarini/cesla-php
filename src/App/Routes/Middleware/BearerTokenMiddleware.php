@@ -21,9 +21,9 @@ class BearerTokenMiddleware implements Middleware
             echo json_encode($data);
             exit; 
         }
-
+        
         $token = str_replace("Bearer ", "", $_SERVER['HTTP_AUTHORIZATION']);
-        if($token != $this->bearerToken) {
+        if($token != $this->bearerToken || $token == "") {
             header('Content-Type: application/json');
             http_response_code(401);
             $data['error'] = 'Unautorized';
