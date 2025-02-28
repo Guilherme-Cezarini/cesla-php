@@ -8,42 +8,42 @@ class Product {
     private $description;
     private $id;
 
-    public function getId() : int 
+    public function getId() 
     {
         return $this->id;
     }
 
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id; 
     }
 
-    public function getPrice() : float 
+    public function getPrice()
     {
         return $this->price;
     }
 
-    public function setPrice(float $price)
+    public function setPrice($price)
     {
         $this->price = $price; 
     }
 
-    public function getDescription() : string
+    public function getDescription()
     {
         return $this->description;
     }
 
-    public function setDescription(string $description)
+    public function setDescription($description)
     {
         $this->description = $description; 
     }
 
-    public function getName() : string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name; 
     }

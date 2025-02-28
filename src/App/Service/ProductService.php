@@ -69,7 +69,7 @@ class ProductService {
         $data = [
             "name"          => property_exists($request, 'name') ? $request->name : "",
             "price"         => property_exists($request, 'price') ? $request->price : 0, 
-            "description"   => property_exists($request, 'description') ? $request->description : ""
+            "description"   => property_exists($request, 'description') ? $request->description : null
         ];
        
 

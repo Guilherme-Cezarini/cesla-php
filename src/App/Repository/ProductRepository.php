@@ -32,12 +32,19 @@ class ProductRepository {
 
     public function update(Product $product)
     {
-
-        $sql = "UPDATE " . $this->table .  " SET name = :name, description = :description, price = :price WHERE id = :id ";
+        $sql = "UPDATE " . $this->table .  " SET name = :name, price = :price";
+        if($product->getDescription() !== null) {
+            $sql .= ", description = :description";
+        }
+        $sql .= " WHERE id = :id";
+           
+        //$sql = "UPDATE " . $this->table .  " SET ". implode(', ', $fields) . " WHERE id = :id ";
         $insert = $this->db->prepare($sql);
         $insert->bindValue(':name', $product->getName());
         $insert->bindValue(':price', $product->getPrice());
-        $insert->bindValue(':description', $product->getDescription());
+        if($product->getDescription() !== null) {
+            $insert->bindValue(':description', $product->getDescription());
+        }
         $insert->bindValue(':id', $product->getId());
 
         $insert->execute();
