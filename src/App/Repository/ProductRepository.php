@@ -38,7 +38,6 @@ class ProductRepository {
         }
         $sql .= " WHERE id = :id";
            
-        //$sql = "UPDATE " . $this->table .  " SET ". implode(', ', $fields) . " WHERE id = :id ";
         $insert = $this->db->prepare($sql);
         $insert->bindValue(':name', $product->getName());
         $insert->bindValue(':price', $product->getPrice());
