@@ -25,8 +25,11 @@ class Database {
         $this->conn = null;
         try {
             $pdo_host = "mysql:host=". $this->host . ";dbname=". $this->db_name;
-            $this->conn = new PDO($pdo_host, $this->username, $this->password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $options = [
+                PDO::ATTR_PERSISTENT => true,
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ];
+            $this->conn = new PDO($pdo_host, $this->username, $this->password, $options);
         }catch (PDOException $exception){
         
             die("Database.php line 20 - Conexão falhou: " . $exception->getMessage());
